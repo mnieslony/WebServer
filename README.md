@@ -2,7 +2,7 @@
 
 to create docker container with webserver in use:
 
-    docker run --name=WebServer -v local_git_clone_path:/web --net=host -dt anniesoft/webserver bash -c "source /setup/Setup.sh; cp /web/httpd.conf /etc/httpd/conf/; httpd -X"
+    docker run --name=WebServer -v local_git_clone_path:/web --net=host -dt anniesoft/webserver bash -c "source /setup/Setup.sh; cp /web/httpd.conf /etc/httpd/conf/; httpd stop; httpd -X"
 
 To subsequently start and stop web server use:
 
