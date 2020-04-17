@@ -25,12 +25,12 @@ Logs</span>
       <div class=\"mdl-layout-spacer\"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class=\"mdl-navigation mdl-layout--large-screen-only\">
- <a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>
+ <a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>
        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>
-        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>
       </nav>
     </div>
   </header>
@@ -39,12 +39,12 @@ Logs</span>
     <span class=\"mdl-layout-title\"></span>
 <div class=\"android-drawer-separator\"></div>
     <nav class=\"mdl-navigation\">
-<a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>
+<a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>
       <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
 	<a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>
-	<a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>
+	<a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>
     </nav>
   </div>
   <main class=\"mdl-layout__content\">
@@ -52,14 +52,14 @@ Logs</span>
 <!-- Your content goes here -->
 
 "
-for file in `ls /data/logs`
+for file in `ls /web/logs/`
 do
-    echo "<a href=\"/logs/$file\"> $file </a>                                                                                                              
+    echo "<a href=\"/daq/logs/$file\"> $file </a>                                                                                                              
 
  
 <div id=$file align='left' style=\"#ccc;font:12px/13px Georgia, Garamond, Serif;overflow:scroll;border:2px solid;padding:1%;height:200px\">"
 
-    tail /data/logs/$file > /tmp/$file -n 15
+    tail /web/logs/$file > /tmp/$file -n 15
 
     while IFS='' read -r line || [[ -n "$line" ]]; do
         echo "$line <br />"

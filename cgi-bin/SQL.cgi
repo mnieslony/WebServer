@@ -23,12 +23,12 @@ SQL Database</span>
       <div class=\"mdl-layout-spacer\"></div>                                                                                                               
       <!-- Navigation. We hide it in small screens. -->   
  <nav class=\"mdl-navigation mdl-layout--large-screen-only\">                                                                                          
- <a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>                                                                                          
+ <a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>                                                                                          
        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>                                                                          
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>                                                                               
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>                                                                   
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>                                                                                 
-        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>                                                                                         
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>                                                                                         
       </nav>                                                                                                                                                
     </div>                                                                                                                                                                       </header>                                                                                                                                                 
   <div class=\"mdl-layout__drawer\">                                                                                                                        
@@ -36,12 +36,12 @@ SQL Database</span>
     <span class=\"mdl-layout-title\"></span>                                                                                                                
 <div class=\"android-drawer-separator\"></div>                                                                                                              
     <nav class=\"mdl-navigation\">                                                                                                                          
-<a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>                                                                                           
+<a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>                                                                                           
       <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>                                                                           
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
  <a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>                                                                   
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>                                                                                 
-        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>                                                                                         
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>                                                                                         
     </nav>                                                                                                                                                  
   </div>                                                                                                                                                    
   <main class=\"mdl-layout__content\">                                                                                                                      
@@ -51,7 +51,7 @@ SQL Database</span>
 "          
 
 
-echo "Select * from runinformation order by id desc" | psql annie  > /tmp/sql
+echo "Select * from runinformation order by id desc" | psql annie -h 192.168.163.11 > /tmp/sql
 
 echo "
 <table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\">

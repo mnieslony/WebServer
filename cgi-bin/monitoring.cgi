@@ -2,7 +2,7 @@
 echo "
 
 <head>
-<meta http-equiv=\"refresh\" content=\"60\"><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" /> <title>Monitoring</title>
+<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" /> <title>Monitoring</title>
 
 </head>
 
@@ -25,12 +25,12 @@ Monitoring</span>
       <div class=\"mdl-layout-spacer\"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class=\"mdl-navigation mdl-layout--large-screen-only\">
- <a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>
+ <a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>
        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>
-        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>
       </nav>
     </div>
   </header>
@@ -39,25 +39,42 @@ Monitoring</span>
     <span class=\"mdl-layout-title\"></span>
 <div class=\"android-drawer-separator\"></div>
     <nav class=\"mdl-navigation\">
-<a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>
+<a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>
       <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
 	<a class=\"mdl-navigation__link\" href=\"/cgi-bin/monitoring.cgi\">Monitoring</a>
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>
-	<a class=\"mdl-navigation__link\" href=\"/cgi-bin/data.cgi\">Data</a>
+	<a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>
     </nav>
   </div>
   <main class=\"mdl-layout__content\">
     <div class=\"page-content\">
 <!-- Your content goes here -->
 
+<p> <a href=\"/cgi-bin/monitoring.cgi\">All Plots</a> , <a href=\"MRDSummary.html\">MRD Summary</a> 
+</p>
 
-<p><a href=\"/cgi-bin/monitoringnr.cgi\">Disable refresh</a></p>
+<select id=\"mySelect\" onchange=\"myFunction()\">
 
 "
-for file in `ls /data/monitoringplots/`
+for folder in `ls -d /web/monitoringplots/*/`
 do
- echo " <img src=\"../monitoringplots/$file\"  width=\"40%\" height=\"40%\"> "
+ echo " <option value=\"$folder\">$folder</option>"
+done
+
+for file in `ls /web/monitoringplots/`
+do
+ echo " <option value=\"$file\">$file</option>"
+done
+
+echo "</select>
+
+"
+
+
+for file in `ls /web/monitoringplots/`
+do
+ echo " <img id=\"$file\" style=\"display:none\" src=\"./monitoringplots/$file\"  width=\"40%\" height=\"40%\"> "
 done
 
 
@@ -92,6 +109,42 @@ echo "
 </div>
   </main>
 </div>
+
+<script>
+
+function myFunction() {
+// var y = document.getElementsByClassName(\"on\");
+//var i;
+//for (i = 0; i < y.length; i++) {
+//  y[i].style.display=\"none\";
+//y[i].className=\"off\";
+//}
+  var x = document.getElementById(\"mySelect\").value;
+  document.getElementById(x).style.display='block';
+document.getElementById(x).className=\"on\";
+
+}
+
+function myFunction2() {
+
+ var y = document.getElementsByClassName(\"on\");
+var i;
+ timestamp = (new Date()).getTime();
+for (i = 0; i < y.length; i++) {
+var a = y[i].src;
+var b = a.split(\"?_=\", 1) 
+var c = b + '?_=' + timestamp;
+ y[i].src =  c;
+}
+
+}
+
+
+setInterval(myFunction2, 20000);
+
+
+
+</script>
 
 </body>
 "                                                                                                                              
