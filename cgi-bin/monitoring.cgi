@@ -92,7 +92,7 @@ echo "</select>
 
 for file in `ls /web/monitoringplots/`
 do
- echo " <img id=\"$file\" style=\"display:none\" src=\"../monitoringplots/$file\"  width=\"40%\" height=\"40%\"> "
+ echo " <img id=\"$file\" style=\"display:none\" src=\"./monitoringplots/$file\"  width=\"40%\" height=\"40%\"> "
 done
 
 
