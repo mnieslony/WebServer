@@ -23,12 +23,12 @@ SQL Database</span>
       <div class=\"mdl-layout-spacer\"></div>                                                                                                               
       <!-- Navigation. We hide it in small screens. -->   
  <nav class=\"mdl-navigation mdl-layout--large-screen-only\">                                                                                          
- <a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>                                                                                          
+ <a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>                                                                                          
        <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>                                                                          
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>                                                                               
-        <a class=\"mdl-navigation__link\" href=\"../Checklist.html\">Monitoring</a>                                                                   
+        <a class=\"mdl-navigation__link\" href=\"./Checklist.html\">Monitoring</a>                                                                   
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>                                                                                 
-        <a class=\"mdl-navigation__link\" href=\"../Cameras.html\">Cameras</a>                                                                                         
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>                                                                                         
       </nav>                                                                                                                                                
     </div>                                                                                                                                                                       </header>                                                                                                                                                 
   <div class=\"mdl-layout__drawer\">                                                                                                                        
@@ -36,12 +36,12 @@ SQL Database</span>
     <span class=\"mdl-layout-title\"></span>                                                                                                                
 <div class=\"android-drawer-separator\"></div>                                                                                                              
     <nav class=\"mdl-navigation\">                                                                                                                          
-<a class=\"mdl-navigation__link\" href=\"../index.html\">Home</a>                                                                                           
+<a class=\"mdl-navigation__link\" href=\"./index.html\">Home</a>                                                                                           
       <a class=\"mdl-navigation__link\" href=\"/cgi-bin/control.cgi\">Control</a>                                                                           
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/logs.cgi\">Logs</a>
- <a class=\"mdl-navigation__link\" href=\"../Checklist.html\">Monitoring</a>                                                                   
+ <a class=\"mdl-navigation__link\" href=\"./Checklist.html\">Monitoring</a>                                                                   
         <a class=\"mdl-navigation__link\" href=\"/cgi-bin/SQL.cgi\">SQL</a>                                                                                 
-        <a class=\"mdl-navigation__link\" href=\"../Cameras.html\">Cameras</a>                                                                                         
+        <a class=\"mdl-navigation__link\" href=\"./Cameras.html\">Cameras</a>                                                                                         
     </nav>                                                                                                                                                  
   </div>                                                                                                                                                    
   <main class=\"mdl-layout__content\">                                                                                                                      
