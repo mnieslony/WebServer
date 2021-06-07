@@ -77,9 +77,9 @@ Monitoring</span>
 </p>-->
 
 <p> <a href="./ChecklistPrint.html">Print version</a> </p>
-
-<p>  </p>
-
+<!---<p style="color: black;font-size: 30px;"> <span id="NumServices"></span></p> </p>-->
+<div id="NumServices"> </div>
+<p> </p>
 <img src="./monitoringplots/DAQInfo_current.png" width=35% height="40%">
 <img src="./monitoringplots/DAQ_VMEServices_current_24h.png"  width="25%" height="40%">
 <img src="./monitoringplots/DAQFileSize_lastDay.png"  width="37%" height="40%">
@@ -150,11 +150,34 @@ Monitoring</span>
 <img src="./monitoringplots/PMT_Temp_RWM.jpg"  width="35%" height="40%">
 <img src="./monitoringplots/PMT_Temp_RWM_Reference.jpg"  width="35%" height="40%">
 
-
-
 </div>
   </main>
 </div>
+
+<script>
+function getNumServices() {
+  var myHeaders = new Headers();
+  myHeaders.append('pragma', 'no-cache');
+  myHeaders.append('cache-control', 'no-cache');
+
+  var myInit = {
+    method: 'GET',
+    headers: myHeaders,
+  };
+  fetch('./num_services.txt',myInit)
+    .then(response => response.text())
+    .then ((data) => {
+      var num = parseInt(data);
+      var num_services_text = num;
+      if (num == 18) num_services_text = "<p style=\"color:green; font-size: 30px;\" > DAQ Services: "+num+"/18 (All good) </p>";
+      else num_services_text = "<p  style=\"color:red; font-size: 30px;\"> DAQ Services: "+num+"/18 (Something wrong) </p>";
+      
+      document.getElementById("NumServices").innerHTML = num_services_text;
+
+    });
+}
+setInterval(getNumServices, 1000); //run function getNumServices() every 60 seconds (/every minute)
+</script>
 
 </body>
                                                                                                                              
